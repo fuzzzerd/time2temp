@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "Meat": "Brisket",
+            "BbqTemp": "225-275",
+            "RelativeTime": "1hr / pound",
+            "TargetTemp":"210"
+        },
+        {
+            "Meat": "Pork Shoulder",
+            "BbqTemp": "225-275",
+            "RelativeTime": "1-1.5hrs / pound",
+            "TargetTemp":"210"
+        }
+    ]
+}
