@@ -5,7 +5,7 @@
             "Category": "Beef",
             "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "1hr / pound",
-            "TargetRange": { "Low": 195, "High": 210 }
+            "TargetRange": { "Low": 185, "High": 205 }
         },
         {
             "Meat": "Pork Shoulder",
