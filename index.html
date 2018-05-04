@@ -61,7 +61,8 @@
 									<td>{{ m.Category }}</td>
 									<td>{{ m.CookerRange.Low }} - {{ m.CookerRange.High }}</td>
 									<td>{{ m.RelativeTime }}</td>
-									<td>{{ m.TargetRange.Low }} - {{ m.TargetRange.High }}</td>
+									<td v-if="!m.TargetRange.Text">{{ m.TargetRange.Low }} - {{ m.TargetRange.High }}</td>
+									<td v-if="m.TargetRange.Text">{{ m.TargetRange.Text }}</td>
 								</tr>
 								</tbody>
 							</table>
