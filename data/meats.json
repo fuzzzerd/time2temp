@@ -2,13 +2,23 @@
     "data": [
         {
             "Meat": "Brisket",
+            "Speed": "Smoke",
             "Category": "Beef",
             "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "1hr / pound",
             "TargetRange": { "Low": 185, "High": 205 }
         },
         {
+            "Meat": "Short Ribs",
+            "Speed": "Smoke",
+            "Category": "Beef",
+            "CookerRange": { "Low": 225, "High": 275 },
+            "RelativeTime": "5 hours",
+            "TargetRange": { "Text": "Until Done" }
+        },
+        {
             "Meat": "Pork Butt",
+            "Speed": "Smoke",
             "Category": "Pork",
             "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "1-1.5hrs / pound",
@@ -16,10 +26,27 @@
         },
         {
             "Meat": "Ribs (Baby Back)",
+            "Speed": "Smoke",
             "Category": "Pork",
             "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "5 Hours",
             "TargetRange": { "Text": "Until Done" }
+        },
+        {
+            "Meat": "Ribs (Spare)",
+            "Speed": "Smoke",
+            "Category": "Pork",
+            "CookerRange": { "Low": 225, "High": 275 },
+            "RelativeTime": "5-7 Hours",
+            "TargetRange": { "Text": "Until Done" }
+        },
+        {
+            "Meat": "Chicken Breast",
+            "Speed": "Smoke",
+            "Category": "Poltry",
+            "CookerRange": { "Low": 275, "High": 350 },
+            "RelativeTime": "5-7 Hours",
+            "TargetRange": { "Low": 165, "High": 170 }
         }
     ]
 }
