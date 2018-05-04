@@ -8,11 +8,18 @@
             "TargetRange": { "Low": 185, "High": 205 }
         },
         {
-            "Meat": "Pork Shoulder",
+            "Meat": "Pork Butt",
             "Category": "Pork",
             "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "1-1.5hrs / pound",
             "TargetRange": { "Low": 195 , "High": 205 }
+        },
+        {
+            "Meat": "Ribs (Baby Back)",
+            "Category": "Pork",
+            "CookerRange": { "Low": 225, "High": 275 },
+            "RelativeTime": "5 Hours",
+            "TargetRange": { "Text": "Until Done" }
         }
     ]
 }
