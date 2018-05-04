@@ -2,15 +2,17 @@
     "data": [
         {
             "Meat": "Brisket",
-            "BbqTemp": "225-275",
+            "Category": "Beef",
+            "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "1hr / pound",
-            "TargetTemp":"210"
+            "TargetRange": { "Low": 195, "High": 210 }
         },
         {
             "Meat": "Pork Shoulder",
-            "BbqTemp": "225-275",
+            "Category": "Pork",
+            "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "1-1.5hrs / pound",
-            "TargetTemp":"210"
+            "TargetRange": { "Low": 195 , "High": 205 }
         }
     ]
 }

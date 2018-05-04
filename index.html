@@ -45,15 +45,25 @@
 					<div class="inner">
 						<h3>{{ message }}</h3>
 						<input v-model="searchTerm" type="text" placeholder="Filter by Meat" />
-
+						<hr>
 						<div class="table-wrapper">
 							<table>
-							<tr v-for="m in meats" v-if="m.Meat.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1">
-								<td>{{ m.Meat }}</td>
-								<td>{{ m.BbqTemp }}</td>
-								<td>{{ m.RelativeTime }}</td>
-								<td>{{ m.TargetTemp }}</td>
-							  </tr>
+								<thead>
+									<th>Cut</th>
+									<th>Family</th>
+									<th>Smoker / Grill</th>
+									<th>Realtive Time</th>
+									<th alt="Target internal meat temp">Target Temp</th>
+								</thead>
+								<tbody>
+								<tr v-for="m in meats" v-if="m.Meat.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1">
+									<td>{{ m.Meat }}</td>
+									<td>{{ m.Category }}</td>
+									<td>{{ m.CookerRange.Low }} - {{ m.CookerRange.High }}</td>
+									<td>{{ m.RelativeTime }}</td>
+									<td>{{ m.TargetRange.Low }} - {{ m.TargetRange.High }}</td>
+								</tr>
+								</tbody>
 							</table>
 						</div>
 					</div>
@@ -71,7 +81,7 @@
 						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
 					</ul> -->
 					<ul class="copyright">
-						<li>&copy; Nate Bross</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						<li><a href="https://github.com/fuzzzerd/time2temp">&copy; Nate Bross</a></li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</div>
 			</footer>
@@ -96,8 +106,10 @@
 				  meats: []
 				},
 				mounted() { // when the Vue app is booted up, this is run automatically.
-					var self = this // create a closure to access component in the callback below
-					fetch('data/meats.json').then(r => r.json()).then(response => self.meats = response.data);
+					var self = this // create a closure to access component in the callback below.
+					window.fetch('data/meats.json')	// fetch our meat data
+						.then(r => r.json()) 
+						.then(response => self.meats = response.data);
 				}
 			});
 		</script>
