@@ -43,7 +43,9 @@
 
 				<section id="one">
 					<div class="inner">
-						<h3>{{ message }}</h3>
+						<h3>{{ title }}</h3>
+						<p>Cheat sheet for grill/smoker temperature organized by meat</p>
+						<hr>
 						<input v-model="searchTerm" type="text" placeholder="Filter by Meat" />
 						<hr>
 						<div class="table-wrapper">
@@ -56,14 +58,10 @@
 									<th alt="Target internal meat temp">Target Temp</th>
 								</thead>
 								<tbody>
-								<tr v-for="m in meats" v-if="m.Meat.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1">
-									<td>{{ m.Meat }}</td>
-									<td>{{ m.Category }}</td>
-									<td>{{ m.CookerRange.Low }} - {{ m.CookerRange.High }}</td>
-									<td>{{ m.RelativeTime }}</td>
-									<td v-if="!m.TargetRange.Text">{{ m.TargetRange.Low }} - {{ m.TargetRange.High }}</td>
-									<td v-if="m.TargetRange.Text">{{ m.TargetRange.Text }}</td>
-								</tr>
+									<tr is="meat-item"
+										v-for="m in meats" 
+										v-if="m.Meat.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1"
+										v-bind:meat="m"></tr>
 								</tbody>
 							</table>
 						</div>
@@ -74,13 +72,11 @@
 			<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
-					<!-- <ul class="icons">
-						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					</ul> -->
+					<ul class="icons">
+						<li><a href="https://www.twitter.com/natebross" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/fuzzzerd/time2temp" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/natebross" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					</ul>
 					<ul class="copyright">
 						<li><a href="https://github.com/fuzzzerd/time2temp">&copy; Nate Bross</a></li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 					</ul>
@@ -99,10 +95,22 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="assets/js/main.js"></script>
 		<script>
-			new Vue({
+			Vue.component('meat-item', {
+				// The todo-item component now accepts a
+				// "prop", which is like a custom attribute.
+				// This prop is called todo.
+				props: ['meat'],
+				template: `<tr><td>{{ meat.Meat }}</td>
+						<td>{{ meat.Category }}</td>
+						<td>{{ meat.CookerRange.Low }} - {{ meat.CookerRange.High }}</td>
+						<td>{{ meat.RelativeTime }}</td>
+						<td v-if="!meat.TargetRange.Text">{{ meat.TargetRange.Low }} - {{ meat.TargetRange.High }}</td>
+						<td v-if="meat.TargetRange.Text">{{ meat.TargetRange.Text }}</td></tr>`
+				});
+			var v = new Vue({
 				el: '#main',
 				data: {
-				  message: 'Bbq Meats',
+				  title: 'Bbq Meats',
 				  searchTerm: '',
 				  meats: []
 				},
