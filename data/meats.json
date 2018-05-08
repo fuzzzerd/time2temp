@@ -45,7 +45,7 @@
             "Speed": "Smoke",
             "Category": "Poltry",
             "CookerRange": { "Low": 275, "High": 350 },
-            "RelativeTime": "5-7 Hours",
+            "RelativeTime": "1-2 Hours",
             "TargetRange": { "Low": 165, "High": 170 }
         }
     ]
