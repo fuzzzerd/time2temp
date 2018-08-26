@@ -9,6 +9,22 @@
             "TargetRange": { "Low": 185, "High": 205 }
         },
         {
+            "Meat": "Sliced Jerky",
+            "Speed": "Cold Smoke",
+            "Category": "Beef",
+            "CookerRange": { "Low": 140, "High": 160 },
+            "RelativeTime": "3 - 4 hours",
+            "TargetRange": { "Text": "Until Done" }
+        },
+        {
+            "Meat": "Prime Rib",
+            "Speed": "Smoke",
+            "Category": "Beef",
+            "CookerRange": { "Low": 225, "High": 250 },
+            "RelativeTime": "10min / pound",
+            "TargetRange": {  "Low": 125, "High": 145 }
+        },
+        {
             "Meat": "Short Ribs",
             "Speed": "Smoke",
             "Category": "Beef",
@@ -39,6 +55,22 @@
             "CookerRange": { "Low": 225, "High": 275 },
             "RelativeTime": "5-7 Hours",
             "TargetRange": { "Text": "Until Done" }
+        },
+        {
+            "Meat": "Whole Turey",
+            "Speed": "Smoke",
+            "Category": "Poltry",
+            "CookerRange": { "Low": 275, "High": 350 },
+            "RelativeTime": "3-5 hours",
+            "TargetRange": { "Low": 165, "High": 170 }
+        },
+        {
+            "Meat": "Whole Chicken",
+            "Speed": "Smoke",
+            "Category": "Poltry",
+            "CookerRange": { "Low": 275, "High": 350 },
+            "RelativeTime": "2-3 hours",
+            "TargetRange": { "Low": 165, "High": 170 }
         },
         {
             "Meat": "Chicken Breast",
