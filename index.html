@@ -5,122 +5,124 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Time2Temp</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
 
-		<!-- Wrapper -->
-		<div id="wrapper">
+<head>
+	<title>Time2Temp</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
 
-			<!-- Header -->
-			<header id="header">
-				<a href="index.html" class="logo">time<strong>2Temp</strong></a>
-				<nav>
-					<a href="#menu">Menu</a>
-				</nav>
-			</header>
+<body>
 
-			<!-- Menu -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-				</ul>
-				<!-- <ul class="actions vertical">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="index.html" class="logo">time<strong>2Temp</strong></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+			</ul>
+			<!-- <ul class="actions vertical">
 					<li><a href="#" class="button special fit">Get Started</a></li>
 					<li><a href="#" class="button fit">Log In</a></li>
 				</ul> -->
-			</nav>
+		</nav>
 
-			<!-- Main -->
-			<div id="main" class="alt">
+		<!-- Main -->
+		<div id="main" class="alt">
 
-				<section id="one">
-					<div class="inner">
-						<h3>{{ title }}</h3>
-						<p>Cheat sheet for grill/smoker temperature organized by meat</p>
-						<hr>
-						<input v-model="searchTerm" type="text" placeholder="Filter by Meat" />
-						<hr>
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<th>Cut</th>
-									<th>Family</th>
-									<th>Smoker / Grill</th>
-									<th>Realtive Time</th>
-									<th alt="Target internal meat temp">Target Temp</th>
-								</thead>
-								<tbody>
-									<tr is="meat-item"
-										v-for="m in meats" 
-										v-if="m.Meat.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1"
-										v-bind:meat="m"></tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</section>
-			</div>
-
-			<!-- Footer -->
-			<footer id="footer">
+			<section id="one">
 				<div class="inner">
-					<ul class="icons">
-						<li><a href="https://www.twitter.com/natebross" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://github.com/fuzzzerd/time2temp" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="https://www.linkedin.com/in/natebross" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li><a href="https://github.com/fuzzzerd/time2temp">&copy; Nate Bross</a></li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-					</ul>
+					<h3>{{ title }}</h3>
+					<p>Cheat sheet for grill/smoker temperature organized by meat</p>
+					<hr>
+					<input v-model="searchTerm" type="text" placeholder="Filter by Meat" />
+					<hr>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<th>Cut</th>
+								<th>Family</th>
+								<th>Smoker / Grill</th>
+								<th>Realtive Time</th>
+								<th alt="Target internal meat temp">Target Temp</th>
+							</thead>
+							<tbody>
+								<tr is="meat-item" v-for="m in meats" v-if="m.Meat.toUpperCase().indexOf(searchTerm.toUpperCase()) !== -1" v-bind:meat="m"></tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</footer>
-
+			</section>
 		</div>
 
-		<!-- Scripts -->
-		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="assets/js/main.js"></script>
-		<script>
-			Vue.component('meat-item', {
-				// The todo-item component now accepts a
-				// "prop", which is like a custom attribute.
-				// This prop is called todo.
-				props: ['meat'],
-				template: `<tr><td>{{ meat.Meat }}</td>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.twitter.com/natebross" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="https://github.com/fuzzzerd/time2temp" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.linkedin.com/in/natebross" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li><a href="https://github.com/fuzzzerd/time2temp">&copy; Nate Bross</a></li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+	 crossorigin="anonymous"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+	<script>
+		Vue.component('meat-item', {
+			// The meat-item component now accepts a
+			// "prop", which is like a custom attribute.
+			// This prop is called meat.
+			props: ['meat'],
+			template: `<tr><td>{{ meat.Meat }}</td>
 						<td>{{ meat.Category }}</td>
 						<td>{{ meat.CookerRange.Low }} - {{ meat.CookerRange.High }}</td>
 						<td>{{ meat.RelativeTime }}</td>
 						<td v-if="!meat.TargetRange.Text">{{ meat.TargetRange.Low }} - {{ meat.TargetRange.High }}</td>
 						<td v-if="meat.TargetRange.Text">{{ meat.TargetRange.Text }}</td></tr>`
-				});
-			var v = new Vue({
-				el: '#main',
-				data: {
-				  title: 'Bbq Meats',
-				  searchTerm: '',
-				  meats: []
-				},
-				mounted() { // when the Vue app is booted up, this is run automatically.
-					var self = this // create a closure to access component in the callback below.
-					window.fetch('data/meats.json')	// fetch our meat data
-						.then(r => r.json()) 
-						.then(response => self.meats = response.data);
-				}
-			});
-		</script>
-	</body>
+		});
+		var v = new Vue({
+			el: '#main',
+			data: {
+				title: 'Bbq Meats',
+				searchTerm: '',
+				meats: []
+			},
+			mounted() { // when the Vue app is booted up, this is run automatically.
+				var self = this // create a closure to access component in the callback below.
+				window.fetch('data/meats.json')	// fetch our meat data
+					.then(r => r.json())
+					.then(response => self.meats = response.data);
+			}
+		});
+	</script>
+</body>
+
 </html>
