@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Time2Temp</title>
+    <title>time2Temp</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -26,6 +26,7 @@
           <hr />
           <input
             id="searchTerm"
+            onkeyup="searchMeats()"
             type="text"
             placeholder="Filter by Cut of Meat"
           />
@@ -84,10 +85,6 @@
     <!-- Scripts -->
     <script>
       var originalMeats;
-
-      var search = document.getElementById('searchTerm');
-      // use keyup since to ensure the value in the field matches
-      search.addEventListener('keyup', searchMeats);
 
       window
         .fetch('meats.json') // fetch our meat data
