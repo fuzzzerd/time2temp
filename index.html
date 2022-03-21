@@ -12,138 +12,67 @@
   </head>
 
   <body>
-    <!-- Header -->
     <header id="header">
-      <a href="/" class="logo"><img src="logo.png" /></a>
+      <a href="/"><img src="logo.png" /></a>
     </header>
 
-    <!-- Main -->
-    <div id="main" class="alt">
-      <section id="one">
-        <div class="inner">
-          <h1>Meats</h1>
-          <p>Cheat sheet for grill/smoker temperature organized by meat</p>
-          <hr />
-          <input
-            id="searchTerm"
-            onkeyup="searchMeats()"
-            type="text"
-            placeholder="Filter by Cut of Meat"
-          />
-          <hr />
-          <div class="table-wrapper">
-            <table id="meat-list">
-              <thead>
-                <th>Cut</th>
-                <th>Family</th>
-                <th>Smoker / Grill</th>
-                <th>Relative Time</th>
-                <th alt="Target internal meat temp">Target Temp</th>
-              </thead>
-              <tbody id="meat-list-body"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="inner">
-        <ul class="icons">
-          <li>
-            <a
-              href="https://www.twitter.com/natebross"
-              class="icon alt fa-twitter"
-              ><span class="label">Twitter</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/fuzzzerd/time2temp"
-              class="icon alt fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/natebross"
-              class="icon alt fa-linkedin"
-              ><span class="label">LinkedIn</span></a
-            >
-          </li>
-        </ul>
-        <ul class="copyright">
-          <li>
-            <a href="https://www.brosstribe.com/">&copy; Nate Bross</a>
-          </li>
-          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-        </ul>
+    <main>
+      <h1>Meats</h1>
+      <p>Cheat sheet for grill/smoker temperature organized by meat</p>
+      <hr />
+      <input
+        id="searchTerm"
+        onkeyup="searchMeats()"
+        type="text"
+        placeholder="Filter by Cut of Meat"
+      />
+      <hr />
+      <div class="table-wrapper">
+        <table id="meat-list">
+          <thead>
+            <th>Cut</th>
+            <th>Family</th>
+            <th>Smoker / Grill</th>
+            <th>Relative Time</th>
+            <th alt="Target internal meat temp">Target Temp</th>
+          </thead>
+          <tbody id="meat-list-body"></tbody>
+        </table>
       </div>
+    </main>
+
+    <footer>
+      <ul class="icons">
+        <li>
+          <a
+            href="https://www.twitter.com/natebross"
+            class="icon alt fa-twitter"
+            ><span class="label">Twitter</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/fuzzzerd/time2temp"
+            class="icon alt fa-github"
+            ><span class="label">GitHub</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/natebross"
+            class="icon alt fa-linkedin"
+            ><span class="label">LinkedIn</span></a
+          >
+        </li>
+      </ul>
+      <ul class="copyright">
+        <li>
+          <a href="https://www.brosstribe.com/">&copy; Nate Bross</a>
+        </li>
+        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+      </ul>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-      var originalMeats;
-
-      window
-        .fetch('meats.json') // fetch our meat data
-        .then((r) => r.json())
-        .then((response) => {
-          originalMeats = response.data;
-          putMeatInTable(originalMeats);
-        });
-
-      function searchMeats(term) {
-        const searchValue = document.getElementById('searchTerm').value;
-        clearTable();
-        putMeatInTable(
-          originalMeats.filter((m) =>
-            m.Meat.toLowerCase().includes(searchValue.toLowerCase())
-          )
-        );
-      }
-
-      function clearTable() {
-        var table = document.getElementById('meat-list');
-        var rowCount = table.rows.length;
-        // clear
-        for (var i = rowCount - 1; i > 0; i--) {
-          table.deleteRow(1);
-        }
-      }
-
-      function putMeatInTable(data) {
-        var tbody = document.getElementById('meat-list-body');
-
-        // populate
-        for (const meat of data) {
-          var row = tbody.insertRow();
-          var meatCell = row.insertCell();
-          meatCell.appendChild(document.createTextNode(meat.Meat));
-
-          var categoryCell = row.insertCell();
-          categoryCell.appendChild(document.createTextNode(meat.Category));
-
-          var tempCell = row.insertCell();
-          tempCell.appendChild(
-            document.createTextNode(
-              meat.CookerRange.Low + ' - ' + meat.CookerRange.High
-            )
-          );
-
-          var timeCell = row.insertCell();
-          timeCell.appendChild(document.createTextNode(meat.RelativeTime));
-
-          var targetTempCell = row.insertCell();
-          targetTempCell.appendChild(
-            document.createTextNode(
-              meat.TargetRange.Text ||
-                meat.TargetRange.Low + ' - ' + meat.TargetRange.High
-            )
-          );
-        }
-      }
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
