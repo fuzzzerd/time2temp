@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>time2Temp</title>
+    <title>time2temp</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -12,60 +12,46 @@
   </head>
 
   <body>
-    <header id="header">
+    <header>
       <a href="/"><img src="logo.png" /></a>
     </header>
 
     <main>
       <h1>Meats</h1>
-      <p>Cheat sheet for grill/smoker temperature organized by meat</p>
+      <p>Cheat sheet for grill/smoker temperature organized by meat cut.</p>
       <hr />
       <input
         id="searchTerm"
         onkeyup="searchMeats()"
         type="text"
-        placeholder="Filter by Cut of Meat"
+        placeholder="Filter by meat cut."
       />
       <hr />
-      <div class="table-wrapper">
-        <table id="meat-list">
-          <thead>
-            <th>Cut</th>
-            <th>Family</th>
-            <th>Smoker / Grill</th>
-            <th>Relative Time</th>
-            <th alt="Target internal meat temp">Target Temp</th>
-          </thead>
-          <tbody id="meat-list-body"></tbody>
-        </table>
-      </div>
+      <table id="meat-list">
+        <thead>
+          <th>Cut</th>
+          <th>Family</th>
+          <th>Smoker / Grill</th>
+          <th>Relative Time</th>
+          <th alt="Target internal meat temp">Target Temp</th>
+        </thead>
+        <tbody id="meat-list-body"></tbody>
+      </table>
     </main>
 
     <footer>
-      <ul class="icons">
+      <ul>
         <li>
-          <a
-            href="https://www.twitter.com/natebross"
-            class="icon alt fa-twitter"
-            ><span class="label">Twitter</span></a
-          >
+          <a href="https://www.twitter.com/natebross">Twitter</a>
         </li>
         <li>
-          <a
-            href="https://github.com/fuzzzerd/time2temp"
-            class="icon alt fa-github"
-            ><span class="label">GitHub</span></a
-          >
+          <a href="https://github.com/fuzzzerd/time2temp">GitHub</a>
         </li>
         <li>
-          <a
-            href="https://www.linkedin.com/in/natebross"
-            class="icon alt fa-linkedin"
-            ><span class="label">LinkedIn</span></a
-          >
+          <a href="https://www.linkedin.com/in/natebross">LinkedIn</a>
         </li>
       </ul>
-      <ul class="copyright">
+      <ul>
         <li>
           <a href="https://www.brosstribe.com/">&copy; Nate Bross</a>
         </li>
