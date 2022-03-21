@@ -1,101 +1,93 @@
 <!DOCTYPE html>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
   <head>
-    <title>Time2Temp</title>
+    <title>time2Temp</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="time2temp-theme.css" />
   </head>
 
   <body>
-    <!-- Wrapper -->
-    <div id="wrapper">
-      <!-- Header -->
-      <header id="header">
-        <a href="index.html" class="logo">time<strong>2Temp</strong></a>
-      </header>
+    <!-- Header -->
+    <header id="header">
+      <a href="/" class="logo"><img src="logo.png" /></a>
+    </header>
 
-      <!-- Main -->
-      <div id="main" class="alt">
-        <section id="one">
-          <div class="inner">
-            <h3>Meats</h3>
-            <p>Cheat sheet for grill/smoker temperature organized by meat</p>
-            <hr />
-            <input id="searchTerm" type="text" placeholder="Filter by Meat" />
-            <hr />
-            <div class="table-wrapper">
-              <table id="meat-list">
-                <thead>
-                  <th>Cut</th>
-                  <th>Family</th>
-                  <th>Smoker / Grill</th>
-                  <th>Relative Time</th>
-                  <th alt="Target internal meat temp">Target Temp</th>
-                </thead>
-                <tbody id="meat-list-body"></tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Footer -->
-      <footer id="footer">
+    <!-- Main -->
+    <div id="main" class="alt">
+      <section id="one">
         <div class="inner">
-          <ul class="icons">
-            <li>
-              <a
-                href="https://www.twitter.com/natebross"
-                class="icon alt fa-twitter"
-                ><span class="label">Twitter</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="https://github.com/fuzzzerd/time2temp"
-                class="icon alt fa-github"
-                ><span class="label">GitHub</span></a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/natebross"
-                class="icon alt fa-linkedin"
-                ><span class="label">LinkedIn</span></a
-              >
-            </li>
-          </ul>
-          <ul class="copyright">
-            <li>
-              <a href="https://www.brosstribe.com/"
-                >&copy; Nate Bross</a
-              >
-            </li>
-            <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-          </ul>
+          <h1>Meats</h1>
+          <p>Cheat sheet for grill/smoker temperature organized by meat</p>
+          <hr />
+          <input
+            id="searchTerm"
+            onkeyup="searchMeats()"
+            type="text"
+            placeholder="Filter by Cut of Meat"
+          />
+          <hr />
+          <div class="table-wrapper">
+            <table id="meat-list">
+              <thead>
+                <th>Cut</th>
+                <th>Family</th>
+                <th>Smoker / Grill</th>
+                <th>Relative Time</th>
+                <th alt="Target internal meat temp">Target Temp</th>
+              </thead>
+              <tbody id="meat-list-body"></tbody>
+            </table>
+          </div>
         </div>
-      </footer>
+      </section>
     </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.twitter.com/natebross"
+              class="icon alt fa-twitter"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/fuzzzerd/time2temp"
+              class="icon alt fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/natebross"
+              class="icon alt fa-linkedin"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+        </ul>
+        <ul class="copyright">
+          <li>
+            <a href="https://www.brosstribe.com/">&copy; Nate Bross</a>
+          </li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </footer>
 
     <!-- Scripts -->
     <script>
       var originalMeats;
 
-      var search = document.getElementById('searchTerm');
-      // use keyup since to ensure the value in the field matches
-      search.addEventListener('keyup', searchMeats);
-
       window
-        .fetch('data/meats.json') // fetch our meat data
+        .fetch('meats.json') // fetch our meat data
         .then((r) => r.json())
         .then((response) => {
           originalMeats = response.data;
@@ -120,8 +112,7 @@
           table.deleteRow(1);
         }
       }
-      
-      
+
       function putMeatInTable(data) {
         var tbody = document.getElementById('meat-list-body');
 
